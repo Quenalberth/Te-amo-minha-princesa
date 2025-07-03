@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Amor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #ffb6c1, #ffe4e1);
+      animation: mudarFundo 10s infinite alternate;
+      color: #800000;
+      text-align: center;
+    }@keyframes mudarFundo {
+  0% { background: #ffe4e1; }
+  100% { background: #ffb6c1; }
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 30px;
+}
+
+.frase {
+  font-size: 1.5em;
+  margin: 20px 0;
+  animation: aparecer 2s ease-in-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.galeria img {
+  max-width: 200px;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+.botao-secreto {
+  margin: 40px;
+  padding: 15px 30px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.mensagem-secreta {
+  display: none;
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
+.coraçoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.coraçao {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+  background-size: contain;
+  animation: cair 5s linear infinite;
+}
+
+@keyframes cair {
+  0% { transform: translateY(-50px); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>  <div class="coraçoes" id="coraçoes"></div>  <h1>Quenalberth & [Nome dela]</h1>
+  <p class="frase">Desde que você entrou na minha vida, tudo ficou mais bonito.</p>
+  <p class="frase">Você é meu amor, minha melhor amiga, minha paz.</p>
+  <p class="frase">Te amar é o que eu quero fazer pra sempre.</p>  <div class="galeria">
+    <img src="https://ibb.co/358Tp9R" alt="Foto 1">
+    <img src="https://ibb.co/gZzpcP2" alt="Foto 2">
+    <img src="https://ibb.co/zhdvRqj" alt="Foto 3">
+    <img src="https://ibb.co/1G1jPX0" alt="Foto 4">
+    <img src="https://ibb.co/ymyckXm" alt="Foto 5">
+    <img src="https://ibb.co/JjdzJfL" alt="Foto 6">
+    <img src="https://ibb.co/RGxBv82" alt="Foto 7">
+    <img src="https://ibb.co/Fkm33s9" alt="Foto 8">
+    <img src="https://ibb.co/DfLL8zc" alt="Foto 9">
+    <img src="https://ibb.co/KjyS2Y1" alt="Foto 10">
+    <img src="https://ibb.co/KP0Mm2d" alt="Foto 11">
+    <img src="https://ibb.co/QjFybNx" alt="Foto 12">
+  </div><button class="botao-secreto" onclick="mostrarMensagem()">Clique para saber um segredo...</button>
+
+  <p class="mensagem-secreta" id="mensagem">Eu escolho você. Hoje, amanhã e sempre. 💖</p>  <script>
+    function mostrarMensagem() {
+      document.getElementById("mensagem").style.display = "block";
+    }
+
+    // corações
+    function criarCoraçoes() {
+      const container = document.getElementById("coraçoes");
+      for (let i = 0; i < 30; i++) {
+        const cor = document.createElement("div");
+        cor.className = "coraçao";
+        cor.style.left = Math.random() * 100 + "%";
+        cor.style.animationDelay = (Math.random() * 5) + "s";
+        container.appendChild(cor);
+      }
+    }
+    criarCoraçoes();
+  </script></body>
+</html>
